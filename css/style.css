@@ -15,6 +15,9 @@
 #alert2{
     display: none;
 }
+#alert3{
+    display: none;
+}
 .password{
     position: relative;
 }

@@ -32,15 +32,16 @@ exampleInputPassword1.addEventListener('input', e => {
 loginForm.addEventListener('submit', e => {
     e.preventDefault();
     console.log('Form was submit');
-    console.log('email', e.target[0].value);
-    console.log('password', e.target[1].value);
-    users.map(el => {
-        if (e.target[0].value === el.email && e.target[1].value === el.password) {
-            alert1.style.display = "block"
-        } else {
-            alert2.style.display = "block"
-        }
-    })
+    let user = users.filter(el => e.target[0].value === el.email);
+
+    if (user.length == 1 && e.target[1].value === user[0].password) {
+        alert1.style.display = "block"
+    }
+    else if (user.length == 1 && e.target[1].value !== user[0].password) {
+        alert2.style.display = "block"
+    } else {
+        alert3.style.display = "block"
+    }
 })
 
 eye2.addEventListener('click', () => {
